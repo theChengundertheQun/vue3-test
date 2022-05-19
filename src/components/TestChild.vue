@@ -3,6 +3,7 @@
     child
     {{ state }}
     <button @click="handleChangePhone">change phone</button>
+    <button @click="handleChangeUser">change user</button>
   </div>
 </template>
 <script>
@@ -32,6 +33,15 @@ export default {
         type: 'changePhone',
         value: '123123123123'
       });
+    },
+    handleChangeUser() {
+      this.dispatch({
+        type: 'changeUser',
+        value: {
+          name: 'admin123',
+          age: 28
+        }
+      })
     },
   }
 }

@@ -35,6 +35,11 @@ export default {
             ...state,
             phone: value
           };
+        case 'changeUser':
+          return {
+            ...state,
+            user: value
+          };
         default:
           return state;
       }
@@ -42,6 +47,10 @@ export default {
     const initialState = {
       name: '',
       phone: '18777777777',
+      user: {
+        name: 'admin',
+        age: 18
+      }
     };
 
     const [state, dispatch] = useReducer(reducer, initialState);
@@ -54,12 +63,6 @@ export default {
       dispatch
     };
   },
-  // provide() {
-  //   return {
-  //     state: this.state,
-  //     dispatch: this.dispatch
-  //   }
-  // },
   created() {},
   methods: {}
 }
