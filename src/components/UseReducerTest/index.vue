@@ -3,18 +3,18 @@
     father
     {{ state }}
     <input @change="(e) => dispatch({ type: 'changeName', value: e.target.value })" />
-    <TextChild />
+    <Child />
   </div>
 </template>
 <script>
-import { useReducer } from '../utils';
-import TextChild from './TestChild';
+import { useReducer } from '@/utils';
+import Child from './Child';
 import { provide } from 'vue';
 
 export default {
   name: 'TestComponent',
   components: {
-    TextChild
+    Child
   },
   data() {
     return {
@@ -54,7 +54,7 @@ export default {
     };
 
     const [state, dispatch] = useReducer(reducer, initialState);
-
+    
     provide('state', state);
     provide('dispatch', dispatch);
     
@@ -63,7 +63,6 @@ export default {
       dispatch
     };
   },
-  created() {},
   methods: {}
 }
 </script>
